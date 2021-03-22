@@ -1,0 +1,17 @@
+import cv2 as cv
+
+src = cv.imread("test.jpg")
+cv.namedWindow("input",cv.WINDOW_AUTOSIZE)
+t1 = cv.getTickCount()
+cv.imshow("input",src)
+hsv = cv.cvtColor(src,cv.COLOR_BGR2HSV)
+cv.imshow("hsv",hsv)
+t2 = cv.getTickCount()
+time = (t2-t1)*cv.getTickFrequency()
+cv.waitKey(0)
+gray = cv.cvtColor(src,cv.COLOR_BGR2GRAY)
+cv.imwrite("test_gray.jpg",gray)
+cv.destroyAllWindows()
+# print(src.shape)
+# print(src.size)
+# print(src.dtype)
